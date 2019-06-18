@@ -10,6 +10,7 @@ require 'middleman-search'
 require 'nokogiri'
 require 'chronic'
 require 'active_support/all'
+require 'sprockets/es6'
 
 require 'govuk_tech_docs/redirects'
 require 'govuk_tech_docs/table_of_contents/helpers'
@@ -30,7 +31,10 @@ module GovukTechDocs
   # @option options [Hash] livereload Options to pass to the `livereload`
   #   extension. Hash with symbols as keys.
   def self.configure(context, options = {})
-    context.activate :sprockets
+    context.activate :sprockets do |s|
+      s.supported_output_extensions << '.es6'
+    end
+
     context.activate :syntax
 
     context.files.watch :source, path: "#{__dir__}/source"

@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "redcarpet", "~> 3.3.2"
   spec.add_dependency "openapi3_parser"
   spec.add_dependency "pry"
+  spec.add_dependency "sprockets-es6"
 
 
   spec.add_development_dependency "bundler", "~> 2.0.1"
