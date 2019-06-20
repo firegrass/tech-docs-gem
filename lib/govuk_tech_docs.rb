@@ -58,7 +58,8 @@ module GovukTechDocs
     context.configure :build do
       activate :autoprefixer
       activate :minify_css, ignore: ['/raw_assets/*']
-      activate :minify_javascript, ignore: ['/raw_assets/*']
+      # Disable minifying due to es6 issues. FIXME to revisit this for DOI in future
+      # activate :minify_javascript, ignore: ['/raw_assets/*']
     end
 
     config_file = ENV.fetch('CONFIG_FILE', 'config/tech-docs.yml')
